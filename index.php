@@ -43,7 +43,7 @@ class Bot
             // Отправляем сообщение
             $this->requestToTelegram(array("text" => $hello), $chat_id, "sendMessage");
             $botstarter = $arrData['message']['from']['username'];
-            $this->requestToTelegram(array("text" => "Кто-то запустил бота! Юзер: $botstarter"), $this->adminId, "sendMessage");
+            $this->requestToTelegram(array("text" => "\u{2755} Кто-то запустил бота! Юзер: $botstarter"), $this->adminId, "sendMessage");
         } else {
             // Если это не старт
             if($is_admin)  {
