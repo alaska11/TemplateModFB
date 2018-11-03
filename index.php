@@ -42,7 +42,7 @@ class Bot
             $hello = $is_admin ? $this->helloAdmin : $this->setTextHello($this->helloUser, $arrData);
             // Отправляем сообщение
             $this->requestToTelegram(array("text" => $hello), $chat_id, "sendMessage");
-            $this->requestToTelegram(array("text" => "Кто-то запустил бота, его имя {username}"), $this->adminId, "sendMessage");
+            $this->requestToTelegram(array("text" => "Кто-то запустил бота! Юзер: {$botstart_id = $arrData['message']['from']['username']}"), $this->adminId, "sendMessage");
         } else {
             // Если это не старт
             if($is_admin)  {
