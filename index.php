@@ -20,7 +20,7 @@ class Bot
     // Приветствие для админа при старте
     private $helloAdmin = "\u{1F5A4}Вы являйтесь админом этого бота\u{1F5A4}\nБот готов принимать сообщения от других пользователей";
     // Приветствие для пользователя при старте
-    private $helloUser = "\u{1F4E3}Приветствую Вас, {username}.\nЗдесь можно задать вопрос\n------\n \nСсылка на инфо канал: @UD_studio";
+    private $helloUser = "\u{1F4E3}Приветствую, {username}\n \n [тут дескриптор] \n Здесь можно задать вопрос\n \n \nСсылка на инфо канал: @UD_studio";
     // Сообщение в случае если админ напишет боту обычное сообщение
     private $answerAdmin = "\u{26D4}Сообщение не будет доставлено!\u{26D4}\nВыберите пользовательское сообщение и используйте функцию ответить";
     /** Обрабатываем сообщение
@@ -48,7 +48,7 @@ class Bot
                 if($this->isReply($arrData)) {
                     // если ответ самому себе
                     if($this->isAdmin($arrData['message']['reply_to_message']['from']['id'])) {
-                        $this->requestToTelegram(array("text" => "Вы ответили сами себе."), $this->adminId, "sendMessage");
+                        $this->requestToTelegram(array("text" => "\u{274C} Ошибка. Админ говорит сам с собой?"), $this->adminId, "sendMessage");
                     } elseif($this->isBot($arrData)) {
                         // если ответ боту
                         $this->requestToTelegram(array("text" => "Вы ответили Боту."), $this->adminId, "sendMessage");
@@ -167,7 +167,7 @@ class Bot
             );
             $this->requestToTelegram($dataSend, $chat_id, "sendVideo");
         } else {
-            $this->requestToTelegram(array("text" => "Ошибка доставки: invalid data. /n Пожалуйста, сообщите о том, что не получили сообщения"), $chat_id, "sendMessage");
+            $this->requestToTelegram(array("text" => "Ошибка доставки: invalid data. Пожалуйста, сообщите о том, что не получили сообщения"), $chat_id, "sendMessage");
         }
     }
 
