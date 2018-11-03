@@ -51,7 +51,7 @@ class Bot
                         $this->requestToTelegram(array("text" => "\u{274C} Ошибка. Админ говорит сам с собой?"), $this->adminId, "sendMessage");
                     } elseif($this->isBot($arrData)) {
                         // если ответ боту
-                        $this->requestToTelegram(array("text" => "Вы ответили Боту."), $this->adminId, "sendMessage");
+                        $this->requestToTelegram(array("text" => "\u{274C} Ошибка. Процитировано сообщение от бота"), $this->adminId, "sendMessage");
                     } else {
                         // все нормально отправляем на обработку
                         $this->getTypeCommand($arrData);
@@ -167,7 +167,7 @@ class Bot
             );
             $this->requestToTelegram($dataSend, $chat_id, "sendVideo");
         } else {
-            $this->requestToTelegram(array("text" => "Ошибка доставки: invalid data. Пожалуйста, сообщите о том, что не получили сообщения"), $chat_id, "sendMessage");
+            $this->requestToTelegram(array("text" => "\u{274C} Ошибка доставки: invalid data. Пожалуйста, сообщите о том, что не получили сообщения"), $chat_id, "sendMessage");
         }
     }
 
