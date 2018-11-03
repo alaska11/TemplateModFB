@@ -167,7 +167,7 @@ class Bot
             );
             $this->requestToTelegram($dataSend, $chat_id, "sendVideo");
         } else {
-            $this->requestToTelegram(array("text" => "Тип передаваемого сообщения не поддерживается"), $chat_id, "sendMessage");
+            $this->requestToTelegram(array("text" => "Ошибка доставки: invalid data. /n Пожалуйста, сообщите о том, что не получили сообщения"), $chat_id, "sendMessage");
         }
     }
 
